@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
+    <title>Document</title>
+    <style>
+
+body{
+    background-color: white;
+}
+  
+#timer {
+  color: #eeeeee;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  font-size: .7em;
+  letter-spacing: 5px;
+}
+
+.days, .hours, .minutes, .seconds {
+  display: inline-block;
+  padding: 20px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.days {
+  background: #eeeeee;
+  color: #9e2896;
+}
+
+.hours {
+  background: #eeeeee;
+  color: #007bc0;
+}
+
+.minutes {
+  background: #eeeeee;
+color: #18837e;
+}
+
+.seconds {
+  background: #eeeeee;
+color: #00884a;
+}
+
+.numbersDay {
+  font-family: 'Montserrat', sans-serif;
+  color: #9e2896;
+  font-size: 4em;
+  text-align: center;
+}
+.numbersHour {
+  font-family: 'Montserrat', sans-serif;
+  color: #007bc0;
+  font-size: 4em;
+  text-align: center;
+}
+.numbersMinute {
+  font-family: 'Montserrat', sans-serif;
+  color: #18837e;
+  font-size: 4em;
+  text-align: center;
+}
+.numbersSecond {
+  font-family: 'Montserrat', sans-serif;
+  color: #00884a;
+  font-size: 4em;
+  text-align: center;
+}
+
+.white {
+  position: absolute;
+  background:  #eeeeee;
+color: #007bc0;
+  height: 85px;
+  width: 75px;
+  left: 30%;
+  top: 2%;
+}
+
+.red {
+  position: absolute;
+  background:  #eeeeee;
+  left: 18%;
+  top: 9%;
+  height: 65px;
+  width: 70px;
+ 
+}
+
+.blue {
+  position: absolute;
+  background:  #eeeeee;
+  height: 80px;
+  width: 80px;
+  left: 60%;
+  top: 5%;
+
+
+}
+
+h1 {
+  font-weight: normal;
+  text-align: center;
+  font-color: #ed0007;
+  font-size: 1em;
+}
+
+    </style>
+</head>
+<body>
+
+<h1 id="headline">Citrix Migration CountDown</h1>
+    
+<div id="timer">
+    <div class="days"> 
+        <div id="days" class="numbersDay"> </div>days</div> 
+      <div class="hours"> 
+        <div  id="hours" class="numbersHour"> </div>hours</div> 
+      <div class="minutes"> 
+        <div  id="minutes" class="numbersMinute"> </div>minutes</div> 
+      <div   class="seconds"> 
+        <div id="seconds" class="numbersSecond"> </div>seconds</div> 
+      </div>
+
+</div>
+
+</body>
+<script>
+    const year = new Date().getFullYear();
+const myDate = new Date('Feb 14, 2025 00:00:00');
+console.log(myDate);
+
+// countdown
+let timer = setInterval(function() {
+
+  // get today's date
+  const today = new Date().getTime();
+
+  // get the difference
+  const diff = myDate - today;
+
+  // math
+  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  // display
+  document.getElementById("days").innerHTML=days
+  document.getElementById("hours").innerHTML=hours
+  document.getElementById("minutes").innerHTML=minutes
+  document.getElementById("seconds").innerHTML=seconds
+
+
+
+}, 1);
+</script>
+</html>
